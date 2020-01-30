@@ -17,13 +17,13 @@
       <div class="logo">
         <img src="src/images/logo.svg" alt="Logo">
       </div>
-      <div style="display:none;" class="hero">
+      <div class="hero">
         <img src="src/images/hero-mobile.jpg" alt="woman on mobile">
       </div>
       <div class="details">
         <div class="headlines">
-          <span class="we">We're</span> 
-          <span class="coming">coming <br>soon</span>
+          <p class="we">WE'RE</p> 
+          <p class="coming">COMING <br>SOON</p>
         </div>
         <div class="desc">
             <p>Hello fellow shoppers! We're currently building our new fashion store.
@@ -33,21 +33,25 @@
       </div>
       <div class="email">
         <form>
-          <input type="email" placeholder="Email Address"/>
+          <input id="email" type="email" placeholder="Email Address"/>
+          <img id="errorIcon" src="src/images/icon-error.svg" alt="error icon">
           <button type="submit"><img src="src/images/icon-arrow.svg" alt="Logo"></button>
         </form>
+        <div class="error">
+          <p>Please provide a valid email</p>
+        </div>
       </div>
     </article>
     <aside>
       <img src="src/images/hero-desktop.jpg" alt="image of woman">
     </aside>
   </main>
-  <!-- <footer>
+  <footer>
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
       Coded by <a href="#">Khutso Siema</a>.
     </p>
-  </footer> -->
+  </footer>
   <script src="/src/index.js"></script>
 </body>
 </html>

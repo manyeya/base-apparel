@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import 'mixins.scss';
 
 :root{
 //colors
@@ -14,6 +15,10 @@
 
 *,*::after,*::before {
     box-sizing: border-box;
+}
+
+h1{
+    margin: 0;
 }
 
 body{
@@ -34,12 +39,35 @@ main{
     "article article aside"
     "article article aside"
     "article article aside";
+
+    @include phone(){
+
+        width: 100vw;
+        grid-template-columns:1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:"article";
+    }
 }
 
 aside{
     grid-area: aside;
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @include phone(){
+        & img{
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
     
 }
+
 
 article{
 
@@ -54,83 +82,133 @@ article{
     "details"
     "email";
 
+    @include phone(){
+        margin: 0;
+        padding: 0;
+        grid-template-rows: 10% 30% 45% 15% ;
+        grid-template-areas:
+        "logo"
+        "hero"
+        "details"
+        "email";
+    }
+
 }
 
-aside img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.we,.coming{
+p.we,p.coming{
     display: block;
-    color:var(--dark-grayish-red)
+    color:var(--dark-grayish-red);
+    margin:0;
 }
 
-.we{
-    font-size:5em;
-    font-weight:300;
-    color:var(--desaturated-red)
+p.we{
+    font-size:calc(2em + 1vw);
+    font-weight:lighter;
+    color:var(--desaturated-red);
+    @include phone(){
+        font-size:calc(2em + 1vw);
+    }
 }
 
-.coming{
-    font-size:5em;
+p.coming{
+    font-size:calc(2em + 1vw);
     font-weight:600;
+    @include phone(){
+        font-size:calc(2em + 1vw);
+    }
 }
 
 .headlines{
-    line-height:4em;
-    letter-spacing:1em;
-
+    line-height:3em;
+    letter-spacing:1.5em;
+    @include phone(){
+        line-height:2.5em;
+        letter-spacing:1em;
+    }
 }
 
 .desc{
-    font-size:1.3em;
+    font-size:calc(0.2em + 1vw);
     font-weight:small;
-    color:var(--desaturated-red)
+    color:var(--desaturated-red);
+    line-height:1.5em;
+    @include phone(){
+        font-size:calc(0.8em + 1vw);
+    }
 }
 
 .logo{
     grid-area:logo;
     padding-top:10%;
+    @include phone(){
+        padding-top:0;
+        align-self: center;
+        padding-left: 10%;
+    }
 }
 
 .hero{
-    grid-area:hero
+    grid-area:hero;
+    display:none;
+    @include phone(){
+        display: flex;
+    }
 }
 
 .details{
     grid-area:details;
     font-family: 'Josefin Sans', sans-serif;
+   
+    align-items: center;
+    @include phone(){
+        margin: 10%;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .email{
     grid-area:email;
-    padding-top:10%;
-}
-
-.email form{
     display:flex;
-    flex-direction:row;
-    width:100%;
+    flex-direction: column;
+    position: relative;
+    & form{
+        display:flex;
+        flex-direction:row;
+        width:100%;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @include phone(){
+            padding-left: 10%;
+        }
+
+        & img[alt *="error"]{
+            display: none;
+            position: absolute;
+            width:5%;
+            height: auto;
+            align-self: center;
+            left: 65%;
+        }
+    }
 }
 
 input[type="email"]{
-    width:100%;
-    padding:3%;
+    width: 100%;
+    padding:4%;
     border-radius:30px;
     outline:none;
     border:1px solid var(--desaturated-red);
-}
-
-input[type="email"]::placeholder{
-  
-    color: var(--desaturated-red);
-    font-weight:400;
+    &::placeholder{
+        color: var(--desaturated-red);
+    }
 }
 
 button{
     position:relative;
+    padding:4%;
     width:100px;
     right:50px;
     border-radius:30px;
@@ -150,5 +228,30 @@ button{
 button:hover{
     box-shadow:2px 3px 15px rgba(10,0,0,0.4);
     background:var(--redish-hover);
+}
+
+.error{
+    display: none;
+    color:var(--soft-red);
+    position: absolute;
+    top:55%;
+    left: 1%;
+    & p{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+footer{
+    left: 5%;
+    top:90%;
+    position: absolute;
+    color: var(--dark-grayish-red);
+
+    @include phone(){
+        left: 10%;
+        top:95%;
+    }
+
 }
 
