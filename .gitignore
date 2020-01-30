@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+.cache
+dist
+design
+
+style-guide.md
+package-lock.json

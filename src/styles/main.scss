@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+:root{
+//colors
+    --desaturated-red:hsl(0, 36%, 70%);
+    --soft-red:hsl(0, 93%, 68%);
+    --dark-grayish-red:hsl(0, 6%, 24%);
+
+//Gradients
+--redish:linear-gradient(135deg,hsl(0, 80%, 86%),hsl(0, 74%, 74%));
+--redish-hover:linear-gradient(135deg,hsl(0, 80%, 86%),hsl(0, 80%, 86%));
+
+}
+
+*,*::after,*::before {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    background:url('/src/images/bg-pattern-desktop.svg')
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 30% 28% 1fr;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas:
+    "article article aside"
+    "article article aside"
+    "article article aside";
+}
+
+aside{
+    grid-area: aside;
+    
+}
+
+article{
+
+    grid-area: article;
+    padding: 0 20%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 40% 30% ;
+    grid-template-areas:
+    "logo"
+    "details"
+    "email";
+
+}
+
+aside img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.we,.coming{
+    display: block;
+    color:var(--dark-grayish-red)
+}
+
+.we{
+    font-size:5em;
+    font-weight:300;
+    color:var(--desaturated-red)
+}
+
+.coming{
+    font-size:5em;
+    font-weight:600;
+}
+
+.headlines{
+    line-height:4em;
+    letter-spacing:1em;
+
+}
+
+.desc{
+    font-size:1.3em;
+    font-weight:small;
+    color:var(--desaturated-red)
+}
+
+.logo{
+    grid-area:logo;
+    padding-top:10%;
+}
+
+.hero{
+    grid-area:hero
+}
+
+.details{
+    grid-area:details;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.email{
+    grid-area:email;
+    padding-top:10%;
+}
+
+.email form{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+
+input[type="email"]{
+    width:100%;
+    padding:3%;
+    border-radius:30px;
+    outline:none;
+    border:1px solid var(--desaturated-red);
+}
+
+input[type="email"]::placeholder{
+  
+    color: var(--desaturated-red);
+    font-weight:400;
+}
+
+button{
+    position:relative;
+    width:100px;
+    right:50px;
+    border-radius:30px;
+    outline:none;
+    border:none;
+    background:var(--redish);
+    box-shadow:2px 3px 15px rgba(10,0,0,0.3);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:all 0.2s ease;
+
+}
+
+button:hover{
+    box-shadow:2px 3px 15px rgba(10,0,0,0.4);
+    background:var(--redish-hover);
+}
+

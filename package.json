@@ -1,0 +1,16 @@
+{
+  "name": "base-apparel-coming-soon",
+  "version": "0.0.1",
+  "description": "Base Apparel challenge",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parel build index.html"
+  },
+  "author": "manyeya khutso siema",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0"
+  }
+}
